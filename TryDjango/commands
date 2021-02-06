@@ -1,0 +1,20 @@
+exec bash
+exec zsh
+cd, ls, mkdir
+source bin/activate
+django-admin
+createsuperuser
+startapp Products
+makemigrations, migrate
+
+models.ForeignKey(ParentModel)
+if settings.DEBUG: (import static and settings)
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+shell
+from Blog.models import Article
+admin.site.register(Article)
+
+objects.all()
+objects.create()
+dir(objects)

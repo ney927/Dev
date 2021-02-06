@@ -1,0 +1,14 @@
+{% include 'base.html'%}
+
+{% block content%}
+  <h1>{{obj.title}}</h1>
+  <p>
+    {{obj.body}}
+  </p>
+    <br>
+  <h5>
+    Author: {{obj.author}}
+    <br>
+    Date: {{obj.date}}
+  </h5>
+{% endblock%}

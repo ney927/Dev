@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h1>Yeep product create </h1>
+<h2>lets go</h2>
+<h3>oomph</h3>
+<!-- action sends you too a new page http://google.com/search (. = same page) -->
+<!-- get: getting URL -->
+<!-- post: save information to backend. (1) -->
+<form action='.' method='POST'> {%csrf_token%}
+  {{form.as_p}} 
+  <input type="submit" value="Save">
+</form> 
+
+<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cb2aba32-b7a4-4c9c-a319-c446e1487bd6/dbk5wyb-494ae36a-975f-40bb-8860-abed862bc7ae.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvY2IyYWJhMzItYjdhNC00YzljLWEzMTktYzQ0NmUxNDg3YmQ2XC9kYms1d3liLTQ5NGFlMzZhLTk3NWYtNDBiYi04ODYwLWFiZWQ4NjJiYzdhZS5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.Q1TbZ_lnnR1PDo7i8t2p78nPg44HkjVzgWqijMNhbKA" alt="dancer cha cha cha">
+
+{%endblock%}
+

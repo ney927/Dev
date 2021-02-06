@@ -1,0 +1,92 @@
+<style>
+  body{
+    background-color: #20b2aa;
+    background-color: #25CCC4;
+  }
+
+  #title{
+    text-align: center;
+    font-size: 5vw;
+    margin: auto 0;
+    text-decoration: underline;
+  }
+
+  #tasks{
+    text-align:left;
+    background-color:lightseagreen;
+    color: lightyellow;
+    padding: 15px 23px;
+    font-size: 25px;
+    line-height: 10px;
+  }
+
+  #list{
+    width: 600px;
+    border-style: dashed;
+    border-color: lightgoldenrodyellow;
+    border-width: 10px;
+    background-color: #fafad2;
+    padding-bottom: 50px;
+    padding-top: 10px;
+    margin: 0 auto;
+  }
+
+  a{
+    text-align: right;
+    display: inline;
+    background-color:lightseagreen;
+    color: lightyellow;
+    padding: 10px 10px;
+    margin: 10vw 10px;
+    font-size: 1vw;
+    /* line-height: 10vh; */
+    border-radius: 10px;
+  }
+
+  #add{
+    text-align:center;
+    font-size: 30px;
+    line-height: 20px;
+  }
+
+  #home{
+    text-align: left;
+    background-color: lightgoldenrodyellow;
+    color: lightseagreen;
+    font-size: 20px;
+    padding: 10px 10px;
+    line-height: 40px;
+  }
+
+</style>
+
+<a href="{% url 'home' %}" id="home">Home</a>
+
+<h1 id="title" >ToDo List</h1>
+<br><br>
+
+<div id="list">
+  
+  {%for instance in obj_list%}
+      {% if instance.completed == True%}
+      <p id="tasks" ><strike>{{instance.item}}</strike></p>
+      <a href="{% url 'tasks-complete' instance.id %}">Incompleted</a>
+      <a href="{% url 'tasks-delete' instance.id %}">Delete</a>
+      {% else %}
+      <p id="tasks" >{{instance.item}}</p>
+      <a href="{% url 'tasks-complete' instance.id %}" >Completed</a>
+
+
+      <a href="{% url 'tasks-delete' instance.id %}">Delete</a>
+      {% endif %}
+      <br> <br> <br><br>
+    {%empty%}
+      <p> &emsp; Wooh! No Tasks To Do! Go watch some Netflix, I recomend Hello My Twenties.</p>
+  {%endfor%}
+  <br><br><br><br>
+  <a id="add" href="{% url 'tasks-create' %}">Add Task</a>
+
+</div>
+
+
+

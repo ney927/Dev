@@ -1,0 +1,48 @@
+<style>
+  body{
+    text-align: center;
+    background-color: lightseagreen;
+  }
+
+  #title{
+    font-size: 3vw;
+    line-height: 120%;
+
+  }
+
+  form{
+    /* display: inline; */
+    color:lightseagreen;
+    font-size: 2vw;
+    line-height: 0;
+  }
+
+  #list{
+    border-color: navy;
+    border-width: 30px;
+    background-color: lightgoldenrodyellow;
+    padding-bottom: 50px;
+    padding-top: 10px
+  }
+
+  
+
+
+</style>
+
+{%extends 'base.html'%}
+
+{%block content%}
+<div id="list">
+  
+  <h1 id="title">Create a task</h1> 
+  
+  <form action="." method="POST"> {%csrf_token%}
+    {{form.item}}
+    <input type="submit" value="Save" type="button">
+  </form>
+  <a href="{% url 'tasks-list' %}">Nevermind</a>
+</div>
+
+{%endblock%}
+

@@ -1,0 +1,12 @@
+{% include 'base.html'%}
+
+{% block content%}
+  <h1>Item</h1>
+  <p>
+    {{object.title}}
+    {{object.price}} 
+    {%if object.summary %}
+      {{object.summary}}
+    {%endif%}
+  </p>
+{% endblock%}

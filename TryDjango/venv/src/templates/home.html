@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+  <h1>Hello {{request.user|capfirst}}, Welcome to my Page</h1>
+  {{request.user.is_authenticated}}
+  <p>This is my template</p>
+
+  <p>
+    {{request.user|capfirst}}'s {{text}} {{date}} 
+    {{list}}
+  </p>
+
+  <ul>
+    {% for my_item in list %}
+
+      {% if truthing == True %}
+        <li>Item {{forloop.counter}}- {{my_item|add:'22'}}</li>
+      {% else %}
+      <li>Item {{forloop.counter}}- {{my_item}}</li>
+      {%endif%}
+      
+    {% endfor %}
+  </ul>
+
+
+{% endblock %}

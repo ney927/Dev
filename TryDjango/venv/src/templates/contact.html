@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>File Page (Upload)</h1>
+  <form action="." method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    <input type="file" name="document">
+    <button type="submit">Upload File</button>
+  </form>
+
+  {%if url%}
+  <p>Uploaded File: <a href="{{url}}">{{url}}</a> </p>
+  {%endif%}
+
+  <h1>Doc Upload</h1>
+  <form method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Upload File</button>
+  </form>
+  <p>info</p>
+
+  <h1>Doc List</h1>
+
+  <ol>
+  {%for iteration in Document_list%}
+    <li>{{iteration.title}}- ({{iteration.subject}}) 
+      <a href="{{iteration.doc.url}}/" target="_blank">Download {{iteration.extension}}</a> 
+      <br>
+      <form method="POST" action="{% url 'delete-doc' iteration.pk%}">
+        {%csrf_token%}
+        <button type="submit">Delete Document</button>
+      </form>
+    </li>
+    <br> <br>
+  {%endfor%}
+</ol>
+
+  <img src="https://i.pinimg.com/originals/08/cc/96/08cc961c1ded28ea324430f570c4c3cf.gif" alt="cute pic">
+{% endblock %}
